@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "rmbr",
+  "version": "0.1",
+  "description": "Remember the things you want to remember",
+  "author": "Sothyrith Hy",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"]
+}

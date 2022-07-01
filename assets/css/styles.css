@@ -1,0 +1,209 @@
+:root {
+  /* ---------------------------------- Font ---------------------------------- */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Source Serif Pro", serif;
+  --letter-spacing-inter: -0.011em;
+
+  /* -------------------------------- Font size ------------------------------- */
+  --font-size-mainText: 1.6rem;
+  --font-size-body: 0.938rem;
+
+  /* ------------------------------- Line height ------------------------------ */
+  --line-height-base: 1.5;
+
+  /* --------------------------------- Color ---------------------------------- */
+  --color-background: hsl(0, 0%, 100%);
+  --color-foreground: hsl(0, 0%, 100%);
+  --color-text: hsl(0, 0%, 30%);
+  --color-line: hsl(0, 0%, 90%);
+  --color-lineFaded: hsl(0, 0%, 95%);
+  --color-faded: hsl(0, 0%, 60%);
+  --color-active: hsl(217, 100%, 60%);
+  --color-hover: hsl(0, 0%, 92%);
+
+  /* -------------------------------- Max width ------------------------------- */
+  --max-width-textContent: 50ch;
+
+  /* -------------------------------- Duration -------------------------------- */
+  --duration-base: 0.5s;
+  --duration-fast: 0.3s;
+  --duration-minimal: 0.1s;
+
+  /* ---------------------------------- Size ---------------------------------- */
+  --size-1: 4px;
+  --size-2: 8px;
+  --size-3: 12px;
+  --size-4: 16px;
+  --size-5: 20px;
+  --size-6: 24px;
+  --size-7: 28px;
+  --size-8: 32px;
+  --size-9: 36px;
+  --size-10: 40px;
+  --size-11: 44px;
+  --size-12: 48px;
+  --size-13: 52px;
+  --size-14: 56px;
+  --size-15: 60px;
+  --size-16: 64px;
+
+  /* ------------------------------ Border radius ----------------------------- */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+
+  /* ------------------------------- Box shadow ------------------------------- */
+  --box-shadow-surface: 0px 0px 16px rgba(17, 17, 26, 0.1);
+  --box-shadow-clip-path: inset(-16px 0px -16px -16px);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  letter-spacing: var(--letter-spacing-inter);
+  line-height: var(--line-height-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+textarea,
+input {
+  color: inherit;
+  outline: none;
+  border: 1px solid var(--color-line);
+  padding: var(--size-4) var(--size-2);
+  border-radius: var(--border-radius-small);
+  transition: border-color var(--duration-minimal) ease;
+}
+
+textarea:focus,
+input:focus {
+  border-color: var(--color-active);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--color-faded);
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  height: auto;
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-style: italic;
+  padding-left: var(--size-2);
+  padding-right: var(--size-2);
+  margin-bottom: var(--size-2);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.icon-button {
+  --size: 28px;
+
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-small);
+  width: var(--size);
+  height: var(--size);
+  transition: background-color var(--duration-fast) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.icon-button img,
+.icon-button svg {
+  width: var(--size-4);
+  height: var(--size-4);
+}
+
+.icon-button:hover {
+  background-color: var(--color-hover);
+}
+
+.main-container {
+  opacity: 1;
+  transition: opacity var(--duration-base) ease,
+    transform var(--duration-base) ease;
+}
+
+.main-container.is-hidden {
+  opacity: 0;
+}
+
+.main-container.is-blurred {
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.main {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-mainText);
+  font-style: italic;
+  max-width: var(--max-width-textContent);
+  text-align: center;
+  user-select: none;
+}
+
+.entry-list {
+  flex-grow: 1;
+  list-style: none;
+  padding: 0;
+}
+
+.entry-item {
+  border-bottom: 1px solid var(--color-lineFaded);
+  padding: var(--size-2) 0;
+  position: relative;
+}
+
+.entry-item:first-child {
+  border-top: 1px solid var(--color-lineFaded);
+}
+
+.entry-item-textarea {
+  border-color: transparent;
+  padding-right: var(--size-6);
+}
+
+.entry-item-delete-button {
+  position: absolute;
+  right: var(--size-1);
+  bottom: var(--size-3);
+  transition: transform var(--duration-minimal) ease-in-out,
+    opacity var(--duration-minimal) ease-in-out;
+}
+
+.entry-item-delete-button.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.new-entry-form {
+  position: relative;
+  margin-bottom: var(--size-2);
+}
+
+.new-entry-form textarea {
+  border-color: transparent;
+}
+
+.new-entry-form textarea:focus {
+  border-color: var(--color-active);
+}
